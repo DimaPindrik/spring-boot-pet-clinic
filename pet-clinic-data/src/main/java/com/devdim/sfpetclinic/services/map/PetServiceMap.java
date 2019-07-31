@@ -2,12 +2,14 @@ package com.devdim.sfpetclinic.services.map;
 
 import com.devdim.sfpetclinic.model.Pet;
 import com.devdim.sfpetclinic.services.PetService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 /**
  * created by Dima on 7/29/2019.
  */
+@Service
 public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
 
     @Override

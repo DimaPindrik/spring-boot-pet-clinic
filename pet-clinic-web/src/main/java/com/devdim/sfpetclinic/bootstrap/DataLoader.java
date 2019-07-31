@@ -15,13 +15,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class DataLoader implements CommandLineRunner {
 
-    private final OwnerService ownerSerivce;
+    private final OwnerService ownerService;
     private final VetService vetService;
 
 
-    public DataLoader() {
-        ownerSerivce = new OwnerServiceMap();
-        vetService = new VetServiceMap();
+    public DataLoader(OwnerService ownerService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
 
     @Override
@@ -31,13 +31,13 @@ public class DataLoader implements CommandLineRunner {
         owner1.setId(1L);
         owner1.setFirstName("Jhon");
         owner1.setLastName("Snow");
-        ownerSerivce.save(owner1);
+        ownerService.save(owner1);
 
         Owner owner2 = new Owner();
-        owner2.setId(1L);
+        owner2.setId(2L);
         owner2.setFirstName("Fred");
         owner2.setLastName("Mcruger");
-        ownerSerivce.save(owner2);
+        ownerService.save(owner2);
 
         System.out.println("Loaded owners ...");
 
@@ -48,7 +48,7 @@ public class DataLoader implements CommandLineRunner {
         vetService.save(vet1);
 
         Vet vet2 = new Vet();
-        vet2.setId(1L);
+        vet2.setId(2L);
         vet2.setFirstName("Khal");
         vet2.setLastName("Drogo");
         vetService.save(vet2);

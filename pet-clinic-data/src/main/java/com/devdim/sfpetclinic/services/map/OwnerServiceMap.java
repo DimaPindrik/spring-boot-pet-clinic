@@ -2,12 +2,14 @@ package com.devdim.sfpetclinic.services.map;
 
 import com.devdim.sfpetclinic.model.Owner;
 import com.devdim.sfpetclinic.services.OwnerService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 /**
  * created by Dima on 7/29/2019.
  */
+@Service
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
     @Override

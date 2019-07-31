@@ -1,14 +1,14 @@
 package com.devdim.sfpetclinic.services.map;
 
 import com.devdim.sfpetclinic.model.Pet;
-import com.devdim.sfpetclinic.services.CrudService;
+import com.devdim.sfpetclinic.services.PetService;
 
 import java.util.Set;
 
 /**
  * created by Dima on 7/29/2019.
  */
-public class PetServiceMap extends AbstractMapService<Pet, Long> implements CrudService<Pet, Long> {
+public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
 
     @Override
     public Set<Pet> findAll() {

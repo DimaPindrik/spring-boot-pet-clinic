@@ -1,14 +1,14 @@
 package com.devdim.sfpetclinic.services.map;
 
 import com.devdim.sfpetclinic.model.Owner;
-import com.devdim.sfpetclinic.services.CrudService;
+import com.devdim.sfpetclinic.services.OwnerService;
 
 import java.util.Set;
 
 /**
  * created by Dima on 7/29/2019.
  */
-public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements CrudService<Owner, Long> {
+public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
     @Override
     public Set<Owner> findAll() {
@@ -33,5 +33,10 @@ public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements 
     @Override
     public Owner save(Owner owner) {
         return super.save(owner.getId(), owner);
+    }
+
+    @Override
+    public Owner findByLastName(String lastName) {
+        return null;
     }
 }

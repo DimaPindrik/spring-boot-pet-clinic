@@ -1,10 +1,7 @@
 package com.devdim.sfpetclinic.bootstrap;
 
 import com.devdim.sfpetclinic.model.*;
-import com.devdim.sfpetclinic.services.OwnerService;
-import com.devdim.sfpetclinic.services.PetTypeService;
-import com.devdim.sfpetclinic.services.SpecialityService;
-import com.devdim.sfpetclinic.services.VetService;
+import com.devdim.sfpetclinic.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -20,13 +17,15 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialityService specialityService;
+    private final VisitService visitService;
 
 
-    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialityService = specialityService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -39,6 +38,7 @@ public class DataLoader implements CommandLineRunner {
     }
 
     private void loadData() {
+
         System.out.println("=========================================== DATA LOADER START ===========================================");
 
         PetType dog = new PetType();
@@ -97,6 +97,13 @@ public class DataLoader implements CommandLineRunner {
 
         ownerService.save(owner2);
 
+        Visit catVisit = new Visit();
+        catVisit.setPet(fredsPet);
+        catVisit.setDate(LocalDate.now());
+        catVisit.setDescription("cat visit description");
+
+        visitService.save(catVisit);
+
         System.out.println("Loaded owners ...");
 
         Vet vet1 = new Vet();
@@ -110,6 +117,8 @@ public class DataLoader implements CommandLineRunner {
         vet2.setLastName("Drogo");
         vet2.getSpecialities().add(surgery);
         vetService.save(vet2);
+
+        System.out.println("Loaded visits ...");
 
         System.out.println("Loaded vets ...");
 

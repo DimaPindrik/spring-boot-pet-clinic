@@ -2,6 +2,7 @@ package com.devdim.sfpetclinic.services.map;
 
 import com.devdim.sfpetclinic.model.Visit;
 import com.devdim.sfpetclinic.services.VisitService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
@@ -10,6 +11,7 @@ import java.util.Set;
  * created by Dima on 8/9/2019.
  */
 @Service
+@Profile({"default", "map"})
 public class VisitServiceMap extends AbstractMapService<Visit, Long> implements VisitService {
 
     @Override
